@@ -1,13 +1,44 @@
-# AssetsApp
+# FinancialApp
+This is a financial application to see assets listed on a stock exchange. It is made with web technologies like NodeJS, Angular 2 + CLI, TypeScript, Bootstrap 4, NPM, FontAwesome and Webpack using the Atom IDE.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.1.
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Prerequisities
+What things are must be already installed
 
-## Code scaffolding
+```
+git / node / npm / angular
+```
+### Installing
+A step by step series to get a development env running
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+First clone the repository
+
+```
+$ git clone https://github.com/gatoenano/financialApp.git <new name>
+```
+
+Go to the main folder directory at project and install npm dependencies
+
+```
+$ npm install
+```
+
+### Development server
+Start the development environment by running
+
+```
+$ ng serve
+```
+
+Then, points the browser url bar to:
+
+```
+http://localhost:4200
+```
+
+The app will automatically reload if you change any of the source files.
 
 ## Build
 
@@ -16,12 +47,3 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
