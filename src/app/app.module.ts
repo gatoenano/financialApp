@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 // App Routes
 import { APP_ROUTING } from './app.routes';
-
+// App Services
+import { AssetsListService } from './services/assets-list.service';
 // App modules
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AssetsListComponent } from './components/assets-list/assets-list.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     HomeComponent,
     AssetsListComponent,
-    FooterComponent
+    FooterComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,9 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    AssetsListService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
