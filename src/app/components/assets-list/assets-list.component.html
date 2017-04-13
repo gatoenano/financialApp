@@ -1,0 +1,59 @@
+<div class="row mb-3">
+  <!-- START SECTION TITLE -->
+  <div class="col-12">
+    <h3 class="mb-2 mb-md-3">Assets list</h3>
+    <hr />
+  </div>
+  <!-- END SECTION TITLE -->
+
+  <!-- START CONTENT -->
+  <div *ngIf="assetsList?.length > 0">
+    <!-- START FILTERS -->
+    <div class="col-12 mb-3 mb-md-4">
+      <ul class="list-group">
+        <li class="list-group-item border-0">
+          <div class="input-group">
+            <h5 class="mr-2 mr-md-3"><strong>Filters</strong></h5>
+            <div>
+              <input type="checkbox" class="ml-3 ml-md-5" value="USD" (click)="onChangeFilter($event)"> USD
+              <input type="checkbox" class="ml-3 ml-md-5" value="EUR" (click)="onChangeFilter($event)"> EUR
+              <input type="checkbox" class="ml-3 ml-md-5" value="JPY" (click)="onChangeFilter($event)"> JPY
+              <input type="checkbox" class="ml-3 ml-md-5" value="Equity" (click)="onChangeFilter($event)"> Equity
+              <input type="checkbox" class="ml-3 ml-md-5" value="Balanced" (click)="onChangeFilter($event)"> Balanced
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- END FILTERS -->
+
+    <!-- START ASSETS LIST -->
+    <div class="d-flex flex-wrap">
+      <div *ngFor="let asset of assetsList | filter: selectedFilters"
+        class="col-md-4 col-xs-12 animated fadeIn fast">
+        <div class="card mb-3">
+          <div class="card-block">
+            <h6 class="card-title mb-2">{{asset.name}}</h6>
+            <div class="card-text d-flex justify-content-between mb-2">
+              <span>Currency: {{asset.currency}}</span>
+              <span>Risk type: {{asset.risk_family}}</span>
+            </div>
+            <button (click)="assetSheet(asset.id)"
+            type="button" class="btn btn-sm btn-success">Go to details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END ASSETS LIST -->
+  </div>
+  <!-- END CONTENT -->
+
+  <!-- START NO CONTENT -->
+  <div *ngIf="assetsList?.length == 0"
+    class="col-12 d-flex justify-content-center animated fadeIn fast">
+    <div class="mt-5">
+      <h3>Has been not possible to retrieve data from the API</h3>
+    </div>
+  </div>
+  <!-- END NO CONTENT -->
+</div>
