@@ -7,7 +7,7 @@
   <!-- END SECTION TITLE -->
 
   <!-- START CONTENT -->
-  <div *ngIf="assetsList?.length > 0">
+  <div *ngIf="assetsList.length > 0">
     <!-- START FILTERS -->
     <div class="col-12 mb-3 mb-md-4">
       <ul class="list-group">
@@ -49,10 +49,10 @@
   <!-- END CONTENT -->
 
   <!-- START NO CONTENT -->
-  <div *ngIf="assetsList?.length == 0"
+  <div *ngIf="assetsList.length == 0"
     class="col-12 d-flex justify-content-center animated fadeIn fast">
     <div class="mt-5">
-      <h3>Has been not possible to retrieve data from the API</h3>
+      <p class="mr-2"><strong>Loading assets list...</strong><i class="fa fa-refresh fa-spin fa-lg fa-pull-right"></i></p>
     </div>
   </div>
   <!-- END NO CONTENT -->

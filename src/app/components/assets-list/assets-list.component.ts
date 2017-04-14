@@ -2,14 +2,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 // App Services
-import { AssetsListService } from '../../services/assets-list.service';
+import { AssetsService } from '../../services/assets.service';
 // App interfaces
 import { Asset } from '../../interfaces/asset.interface';
 
 @Component({
   selector: 'app-assets-list',
-  templateUrl: './assets-list.component.html',
-  styleUrls: ['./assets-list.component.css']
+  templateUrl: './assets-list.component.html'
 })
 export class AssetsListComponent implements OnInit {
   // assets list
@@ -18,24 +17,18 @@ export class AssetsListComponent implements OnInit {
   selectedFilters:Array<string> = [];
 
   constructor(
-    private _assetsListService:AssetsListService,
+    private _assetsService:AssetsService,
     private _router:Router
   ) {}
 
-  // gets a list of assets from a API service
-  getAssets() {
-    this._assetsListService.getAssetsList()
-    .subscribe(data => this.assetsList = data);
-  }
-  // TODO: remove when finish
-  getAssetsFake() {
-    this.assetsList = this._assetsListService.getAssetsListFake();
-  }
   ngOnInit() {
     // at first load
-    // this.getAssets();
-    // TODO: remove when finish
-    this.getAssetsFake();
+    this.getAssets();
+  }
+  // gets a list of assets from a API service
+  getAssets() {
+    this._assetsService.getAssetsList()
+    .subscribe(data => this.assetsList = data);
   }
   // applies filters to the assets list
   onChangeFilter(event: any) {
@@ -52,10 +45,9 @@ export class AssetsListComponent implements OnInit {
       }
     }
   }
-
+  // loads the requested asset details
   assetSheet(assetId:number) {
-    console.log('assetId: ', assetId);
-    // this._router.navigate(['/asset', assetId]);
+    this._router.navigate(['/asset', assetId]);
   }
 
 }
