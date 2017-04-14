@@ -17,7 +17,7 @@ router.get('*', function (req, res, next) {
 // Heroku port
 app.listen(process.env.PORT || 8080);
 
-// module.exports = router;
+module.exports = router;
 //
 // var express = require('express');
 // var path = require('path');
