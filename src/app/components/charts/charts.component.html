@@ -1,0 +1,17 @@
+<div *ngIf="!assetParentData.prices">
+  <p>There's no data to show</p>
+</div>
+
+
+<div *ngIf="assetParentData.prices">
+  <canvas *ngIf="applyChart"
+    baseChart
+    [data]="chartData"
+    [labels]="chartLabels"
+    [colors]="chartColors"
+    [chartType]="chartType"
+    [legend]="legendChart"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)">
+  </canvas>
+</div>
