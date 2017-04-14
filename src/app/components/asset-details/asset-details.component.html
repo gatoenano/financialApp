@@ -1,0 +1,57 @@
+<div class="row mb-3">
+  <!-- START SECTION TITLE -->
+  <div class="col-12">
+    <h3 class="d-inline mb-2 mb-md-3">Assets details</h3>
+    <div class="dropdown float-right">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Other assets
+      </button>
+      <div *ngIf="assetsList"
+        class="dropdown-menu dropdown-menu-right animated fadeIn fast" aria-labelledby="dropdownMenuButton">
+        <a *ngFor="let item of assetsList"
+          (click)="reloadingData = true"
+          class="dropdown-item" [routerLink]="['/asset', item.id]">{{item.name}}</a>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <!-- END SECTION TITLE -->
+
+  <!-- START CONTENT -->
+  <div *ngIf="asset && !reloadingData"
+    class="d-flex flex-wrap">
+    <!-- START ASSET DETAILS -->
+    <div class="col-lg-6 mb-3 mb-md-4">
+      <p><strong>Name: </strong>{{asset.name}}</p>
+      <p><strong>Currency: </strong>{{asset.currency.name}}</p>
+      <p><strong>Issuer: </strong>{{asset.issuer.name}}</p>
+      <p><strong>Region: </strong>
+        <span *ngFor="let item of asset.region | objectIterate">{{item}} / </span>
+      </p>
+      <p><strong>Risk family: </strong>
+        <span *ngFor="let item of asset.risk_family | objectIterate">{{item}} / </span>
+      </p>
+      <p><strong>Sector: </strong>
+        <span *ngFor="let item of asset.sector | objectIterate">{{item}} / </span>
+      </p>
+    </div>
+    <!-- END ASSET DETAILS -->
+    <!-- START ASSET GRAPH -->
+    <div
+      class="col-lg-6 mb-3 mb-md-5">
+      <app-charts [assetParentData]="asset">Loading asset's graph...</app-charts>
+    </div>
+    <!-- END ASSET GRAPH -->
+    <!-- START ASSET COMMENTS -->
+    <div class="col-lg-6 mb-3 mb-md-4">
+      <app-comments [currentAssetId]="asset.id"></app-comments>
+    </div>
+    <!-- END ASSET COMMENTS -->
+  </div>
+  <div *ngIf="!asset || reloadingData"
+    class="col-12 d-flex justify-content-center animated fadeIn fast">
+    <div class="mt-5">
+      <p class="mr-2"><strong>Loading asset details...</strong><i class="fa fa-refresh fa-spin fa-lg fa-pull-right"></i></p>
+    </div>
+  </div>
+</div>
