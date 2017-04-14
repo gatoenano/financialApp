@@ -1,12 +1,10 @@
 // server.js
 const express = require('express');
 const app = express();
-const router = express.Router();
 // Run the app by serving the static files
 // in the dist directory
 app.use(express.static(__dirname + '/dist'));
 // Catch all other routes and return the index file
-app.use(router.routes());
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
