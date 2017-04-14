@@ -4,9 +4,9 @@ const app = express();
 const router = express.Router();
 // Run the app by serving the static files
 // in the dist directory
-// app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist'));
 // serve angular front end files from root path
-router.use('/', express.static('dist', { redirect: false }));
+// router.use('/', express.static('dist', { redirect: false }));
 
 // rewrite virtual urls to angular app to enable refreshing of internal pages
 router.get('*', function (req, res, next) {
