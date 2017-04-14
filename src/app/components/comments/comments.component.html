@@ -1,0 +1,46 @@
+<form>
+  <fieldset>
+    <!-- START COMMENTS  -->
+    <div *ngIf="assetComments.length > 0"
+        class="mb-5 animated fast fadeIn">
+      <div *ngFor="let item of assetComments; let i = index">
+        <!-- START STORED COMMENTS  -->
+        <div *ngIf="!modifyComment[i]"
+          class="mb-3 animated fast fadeIn">
+          <small>Comment added on {{item.comment_date | date: 'yyyy-MM-dd (hh:mm)'}}</small>
+          <p class="bg-faded rounded p-2 pl-0">{{item.comment}}</p>
+          <button (click)="modifyComment[i] = true; showTextArea = false"
+          type="button" class="btn btn-sm btn-info">Modify</button>
+          <button (click)="removeComment(i); showTextArea = false"
+          type="button" class="btn btn-sm btn-danger btn-danger">Delete</button>
+        </div>
+        <!-- END STORED COMMENTS  -->
+        <!-- START MODIFY COMMENT  -->
+        <div *ngIf="modifyComment[i]"
+          class="">
+          <textarea autocomplete="off" class="form-control mb-3" rows="3" name="commentText" placeholder="Add a comment" [(ngModel)]="assetComments[i].comment"></textarea>
+          <button (click)="changeComment(); modifyComment[i] = false"
+          type="button" class="btn btn-sm btn-success">Submit</button>
+          <button (click)="modifyComment[i] = false"
+            type="button" class="btn btn-link">Cancel</button>
+        </div>
+        <!-- END MODIFY COMMENT  -->
+      </div>
+    </div>
+    <!-- END COMMENTS  -->
+    <!-- START ADD COMMENT  -->
+    <button *ngIf="!showTextArea"
+      (click)="showTextArea = true"
+      type="button" class="btn btn-default animated fast fadeIn">Add a comment</button>
+
+    <div *ngIf="showTextArea"
+      class="form-group animated fast fadeIn">
+      <textarea class="form-control mb-3" rows="3" name="commentText" placeholder="Add a comment" [(ngModel)]="addComment"></textarea>
+      <button (click)="saveComment(); showTextArea = false"
+        type="button" class="btn btn-success">Submit</button>
+      <button (click)="showTextArea = false"
+        type="button" class="btn btn-link">Cancel</button>
+    </div>
+    <!-- END ADD COMMENT  -->
+  </fieldset>
+</form>
