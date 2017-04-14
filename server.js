@@ -5,7 +5,7 @@ const router = express.Router();
 const path = require('path');
 // Run the app by serving the static files
 // in the dist directory
-app.use(express.static(__dirname + '/dist', { redirect: false }));
+app.use(express.static(__dirname + '/dist'));
 // serve angular front end files from root path
 // router.use('/', express.static('dist', { redirect: false }));
 app.get('/*', function(req, res) {
