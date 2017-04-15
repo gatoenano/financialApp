@@ -11,6 +11,11 @@ app.use(express.static(__dirname + '/dist'));
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
+
+app.use((req, res, next) => {
+ res.header('Content-Security-Policy', 'upgrade-insecure-requests');
+ next();
+})
 // rewrite virtual urls to angular app to enable refreshing of internal pages
 // router.get('*', function (req, res, next) {
 //     res.sendFile(path.resolve('dist/index.html'));
