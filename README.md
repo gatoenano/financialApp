@@ -1,5 +1,11 @@
 # FinancialApp
-This is a financial application to see assets listed on a stock exchange. It is made with web technologies like NodeJS, Angular 2 + CLI, TypeScript, Bootstrap 4, NPM, FontAwesome and Webpack using the Atom IDE.
+This is a financial application to see assets listed on a stock exchange. It is made with web technologies like NodeJS, Angular 2 + CLI, TypeScript, Bootstrap 4, NPM, FontAwesome and Webpack using the Atom IDE. [Demo live version](http://financial-angular-app.herokuapp.com).
+
+<img src="https://cloud.githubusercontent.com/assets/2183987/25088833/c5b31d34-2379-11e7-94dc-b3812a0d93f2.png" width="15%"></img>
+<img src="https://cloud.githubusercontent.com/assets/2183987/25088834/c5b4cd00-2379-11e7-9641-c51ea95ee1a8.png" width="15%"></img>
+<img src="https://cloud.githubusercontent.com/assets/2183987/25088836/c5bd32ec-2379-11e7-9f5f-79c8c269c023.png" width="15%"></img>
+<img src="https://cloud.githubusercontent.com/assets/2183987/25088832/c5ae0b0a-2379-11e7-9b3e-925873ff419c.png" width="15%"></img>
+<img src="https://cloud.githubusercontent.com/assets/2183987/25088835/c5b8506a-2379-11e7-9345-1d049089f886.png" width="15%"></img>
 
 
 ## Getting Started
